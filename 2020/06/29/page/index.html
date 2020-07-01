@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 <script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
@@ -463,7 +463,7 @@
             <div id="articleContent">
                 <p>#闲来喝茶  </p>
 
-    <div id="aplayer-qNHQAbGz" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-LSMcxysh" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1301884692" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
     ></div>
             </div>
@@ -677,6 +677,33 @@
     </div>
 
     
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '18e27a386b2e173ba243',
+        clientSecret: '782120d6bbba0242169cd524910d2a004b9baadf',
+        repo: 'git@github.com:postorman/bolgtalk.git',
+        owner: 'postorman',
+        admin: "postorman",
+        id: '2020-06-29T16-09-26',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
 
     
 
@@ -738,19 +765,25 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/29/hello-world/">
+                <a href="/2020/06/29/%E9%A6%96%E5%85%88%E5%AD%A6%E4%B9%A0Markdown/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="Markdow">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Markdow</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            Markdown下面让我们一起来了解Markdown
+Markdown标题Markdown标题有两种格式使用=或-来标记一级和二级标题语法如下:
+
+我展示的是一级标题
+================
+我展示的是二级标题  
+-------
                         
                     </div>
                     <div class="publish-info">
@@ -760,10 +793,18 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            鸡米花
+                            徐俊浩
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -939,7 +980,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
+                   type="song"
                    id="1301884692"
                    fixed='true'
                    autoplay='true'
@@ -1075,8 +1116,6 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/others/clicklove.js" async="async"></script>
-    
     
     <script async src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/others/busuanzi.pure.mini.js"></script>
     
@@ -1086,13 +1125,20 @@ $(function () {
     
 
     
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/background/canvas-nest.js"></script>
+    
 
     
     
     <script type="text/javascript" size="150" alpha='0.6'
-        zIndex="-1" src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/background/ribbon.min.js" async="async"></script>
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
     
 
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
