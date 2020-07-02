@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 烟雨行舟">
+    <meta name="keywords" content="前端小知识js篇, 烟雨行舟">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 烟雨行舟</title>
+    <title>前端小知识js篇 | 烟雨行舟</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/favicon.png">
     <link rel="stylesheet" href="/css/waifu.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">前端小知识js篇</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/js/">
+                                <span class="chip bg-color">js</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-29
+                    2020-07-02
                 </div>
                 
 
@@ -459,20 +463,166 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+                <h2 id="let-const-var的区别"><a href="#let-const-var的区别" class="headerlink" title="let,const,var的区别"></a>let,const,var的区别</h2><p><strong>let</strong></p>
+<blockquote>
+<ol>
+<li>let声明的变量不存在变量提升的问题，必须遵循 “先声明，后使用”否则会报错。但用var声明不会出现报错。  </li>
+<li>let声明的变量，存在块级作用域。let声明的变量只在所声明的代码块内有效，块级作用域{}，包括if和for</li>
+<li>let不允许在同一作用域内重复声明同一个变量，var在同一个作用域内声明同一个变量后面会覆盖前面的，但是let会报错。</li>
+<li>存在暂时性死区，在代码块内使用let声明变量之前，该变量是不可使用的。只要在作用域内使用let命令，那么所声明的变量就被”绑定”在作用域内，不管在外部有没有声明。</li>
+</ol>
+</blockquote>
+<p>在ES6中，如果在代码块内使用let和const都存在暂时性死区，都必须遵守 “先声明，后使用”的规则。<br>ES6规定，暂时性死区不存在变量提升的问题，主要是为了解决”先使用，后声明”带来的问题。只要进入暂时性死区，变量就已经存在，但是必须要等到声明完了之后才可以获取和使用。</p>
+<p><strong>const</strong></p>
+<blockquote>
+<ol>
+<li>const用来声明一个常量，一旦声明其值不可更改。所以const在声明的时候必须要初始化，不能先声明再初始化否则会报错。</li>
+<li>const声明的变量只在块级作用域内有效。</li>
+<li>const声明的变量存在暂时性死区。</li>
+<li>const在同一个作用域内不可重复声明变量</li>
+<li>但是用const声明的对象的属性是可以更改的，因为const实质上保证的并不是变量的值不得改动，而是变量指向的内存地址的值不得改动。对于简单类型数据，值就保存在变量指向的内存地址中，相当于常量。而对于复合型的数据，变量指向的是内存地址保存的是一个指针。const只能保证指针是不可以被更改，但指针指向的数据结构是可以被改变的。</li>
+</ol>
+</blockquote>
+<h2 id="了解闭包"><a href="#了解闭包" class="headerlink" title="了解闭包"></a>了解闭包</h2><p><strong>什么是闭包</strong></p>
+<blockquote>
+<p>闭包的作用: 正常函数执行完毕后,里面声明的变量被垃圾回收处理掉,但是闭包可以让作用域里的 变量,在函数执行完之后依旧保持没有被垃圾回收处理掉</p>
+</blockquote>
+<p><strong>闭包实例</strong></p>
+<pre><code>// 创建闭包最常见的方式函数作为返回值
+function foo() {
+  var name = &quot;xjh&quot;;
+  return function() {
+  console.log(name);
+  };
+}
+var bar = foo();
+bar(); //打印xjh    --外部函数访问内部变量</code></pre><p><strong>闭包应用</strong></p>
+<ol>
+<li><p>for循环打印</p>
+<pre><code>//方法一:
+for (var i = 0; i &lt; 4; i++) {
+  setTimeout(
+    (function(i) {
+      return function() {
+        console.log(i);
+      };
+    })(i),
+    300
+  );
+}
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+// 或者
+for (var i = 0; i &lt; 4; i++) {
+  setTimeout(
+    (function() {
+      var temp = i;
+      return function() {
+        console.log(temp);
+      };
+    })(),
+    300
+  );
+}
+//这个是通过自执行函数返回一个函数,然后在调用返回的函数去获取自执行函数内部的变量,此为闭包
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+//方法发二:
+for (var i = 0; i &lt; 4; i++) {
+  (function(i) {
+    setTimeout(function() {
+      console.log(i);
+    }, 300);
+  })(i);
+}
+// 大部分都认为方法一和方法二都是闭包,我认为方法一是闭包,而方法二是通过创建一个自执行函数,使变量存在这个自执行函数的作用域里</code></pre></li>
+<li><p>setTimeout场景</p>
+<pre><code>//原生的setTimeout传递的第一个函数不能带参数
+setTimeout(function(param){
+  alert(param)
+},1000)
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+//通过闭包可以实现传参效果
+function func(param){
+  return function(){
+    alert(param)
+  }
+}
+var f1 = func(1);
+setTimeout(f1,1000);</code></pre></li>
+</ol>
+<h2 id="防抖节流"><a href="#防抖节流" class="headerlink" title="防抖节流"></a>防抖节流</h2><p><strong>防抖：</strong></p>
+<blockquote>
+<p>当持续触发事件时, 一定时间内没有再触发，事件处理函数执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时<br>假如期限值是200ms<br>1、在200ms 内没有再次触发事件，那么就执行函数；<br>2、如果在200ms 内再次触发了滚动事件，那么当前计时器取消，重新开始计时；</p>
+</blockquote>
+<p><img src="1.jpg" alt="防抖"></p>
+<pre><code>function debounce(fn,delay){
+let timer = null;
+return function(){
+  if(timer){
+//进入该分支语句，说明当前正在一个计时过程中，并且又触发了相同事件。所以要取消当前的计时，重新开始计时
+    clearTimeout(timer)
+  }
+  timer = setTimeout(fn,delay)
+}
+}
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+//防抖debounce代码：
+function debounce(fn,delay) {
+    var timeout = null; // 创建一个标记用来存放定时器的返回值
+    return function (e) {
+        // 每当用户输入的时候把前一个 setTimeout clear 掉
+      if(timeout){
+        clearTimeout(timeout); 
+      }
+
+        // 然后又创建一个新的 setTimeout, 这样就能保证interval 间隔内如果时间持续触发，就不会执行 fn 函数
+        timeout = setTimeout(() =&gt; {
+            fn.apply(this, arguments);
+        }, delay);
+    };
+}
+// 处理函数
+function handle() {
+    console.log(&apos;防抖：&apos;, Math.random());
+}
+
+//滚动事件
+window.addEventListener(&apos;scroll&apos;, debounce(handle,500));</code></pre><p><strong>节流</strong></p>
+<p>当持续触发事件时，保证一定时间段内只调用一次事件处理函数。</p>
+<blockquote>
+<p>函数防抖(debounce)：触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。</p>
+</blockquote>
+<blockquote>
+<p>函数节流(throttle)：高频事件触发，但在n秒内只会执行一次，所以节流会稀释函数的执行频率。</p>
+</blockquote>
+<p>节流主要有两种方法:时间戳和计时器<br><img src="2.png" alt="节流"></p>
+<pre><code>var throttle = (fn,delay)=&gt; {
+  var per = Date.now();
+  return () =&gt; {
+    var args = fn.arguments;
+    var now = Date.now();
+    if(now-pre&gt;=delay){
+      fn.apply(_this,args);
+      pre = Date.now()
+    }
+  }
+}
+function handle() {            
+console.log(Math.random());        
+}  
+window.addEventListener(&apos;scroll&apos;, throttle(handle, 1000));  </code></pre><p>当触发事件的时候，我们设置一个定时器，再次触发事件的时候，如果定时器存在，就不执行，直到delay时间后，定时器执行执行函数，并且清空定时器，这样就可以设置下个定时器。</p>
+<pre><code>var throttle =  (fn,delay) =&gt; {
+var timer = null;
+return () =&gt; {
+  var args= fn.arguments;
+  if(!timer){
+    timer = setTimeout(()=&gt;{
+      fn.apply(this,args)
+      timer = null
+    },delay)
+  }
+}
+}</code></pre>
             </div>
             <hr/>
 
@@ -497,7 +647,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://postorman.github.io/2020/06/29/hello-world/">https://postorman.github.io/2020/06/29/hello-world/</a>
+                    <a href="https://postorman.github.io/2020/07/02/qian-duan-xiao-zhi-shi-js-pian/">https://postorman.github.io/2020/07/02/qian-duan-xiao-zhi-shi-js-pian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -534,7 +684,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/js/">
+                                    <span class="chip bg-color">js</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -703,7 +857,7 @@
         repo: 'bolgtalk',
         owner: 'postorman',
         admin: "postorman",
-        id: '2020-06-29T14-50-09',
+        id: '2020-07-02T10-33-53',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -727,79 +881,33 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/06/29/shou-xian-xue-xi-markdown/">
+                <a href="/2020/07/02/qian-duan-xiao-zhi-shi-js-pian/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="Markdow">
+                        <img src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="前端小知识js篇">
                         
-                        <span class="card-title">Markdow</span>
+                        <span class="card-title">前端小知识js篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown下面让我们一起来了解Markdown
-Markdown标题Markdown标题有两种格式使用=或-来标记一级和二级标题语法如下:
+                            let,const,var的区别let
 
-我展示的是一级标题
-================
-我展示的是二级标题  
--------
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-29
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            徐俊浩
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/29/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+
+let声明的变量不存在变量提升的问题，必须遵循 “先声明，后使用”否则会报错。但用var声明不会出现报错。  
+let声明的变量，存在块级作用域。let声明的变量只在所声明的代码块内有效，块级作用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
                             </span>
                         <span class="publish-author">
                             
@@ -810,6 +918,64 @@ Markdown标题Markdown标题有两种格式使用=或-来标记一级和二级�
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/01/qian-duan-xiao-zhi-shi-css-pian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/medias/banner/bg6.jpg" class="responsive-img" alt="前端小知识css篇">
+                        
+                        <span class="card-title">前端小知识css篇</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            接下来看看css小知识(以下为本人偶尔看到收集至此)
+二栏布局边栏浮动，主栏留出相应的margin （边栏宽度）
+
+&lt;div id = &quot;aside&quot;&gt;
+   &lt;/div&gt;
+   &lt;div 
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            鸡米花
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
