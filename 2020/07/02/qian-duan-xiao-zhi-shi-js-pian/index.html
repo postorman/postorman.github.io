@@ -524,7 +524,6 @@ for (var i = 0; i &lt; 4; i++) {
   );
 }
 //这个是通过自执行函数返回一个函数,然后在调用返回的函数去获取自执行函数内部的变量,此为闭包
-
 //方法发二:
 for (var i = 0; i &lt; 4; i++) {
   (function(i) {
@@ -539,7 +538,6 @@ for (var i = 0; i &lt; 4; i++) {
 setTimeout(function(param){
   alert(param)
 },1000)
-
 //通过闭包可以实现传参效果
 function func(param){
   return function(){
@@ -596,10 +594,11 @@ window.addEventListener(&apos;scroll&apos;, debounce(handle,500));</code></pre><
 <p>函数节流(throttle)：高频事件触发，但在n秒内只会执行一次，所以节流会稀释函数的执行频率。</p>
 </blockquote>
 <p>节流主要有两种方法:时间戳和计时器<br><img src="2.png" alt="节流"></p>
-<pre><code>var throttle = (fn,delay)=&gt; {
+<pre><code>var throttle = function(fn,delay) {
   var per = Date.now();
-  return () =&gt; {
-    var args = fn.arguments;
+  return function () {
+    var _this = this
+    var args = arguments;
     var now = Date.now();
     if(now-pre&gt;=delay){
       fn.apply(_this,args);
@@ -611,18 +610,78 @@ function handle() {
 console.log(Math.random());        
 }  
 window.addEventListener(&apos;scroll&apos;, throttle(handle, 1000));  </code></pre><p>当触发事件的时候，我们设置一个定时器，再次触发事件的时候，如果定时器存在，就不执行，直到delay时间后，定时器执行执行函数，并且清空定时器，这样就可以设置下个定时器。</p>
-<pre><code>var throttle =  (fn,delay) =&gt; {
+<pre><code>var throttle = function (fn,delay) {
 var timer = null;
-return () =&gt; {
-  var args= fn.arguments;
+return function () {
+  var _this = this
+  var args= arguments;
   if(!timer){
     timer = setTimeout(()=&gt;{
-      fn.apply(this,args)
+      fn.apply(_this,args)
       timer = null
     },delay)
   }
 }
-}</code></pre>
+}</code></pre><h2 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h2><p>箭头函数为匿名函数，不能为构造函数，不能使用new</p>
+<pre><code>let Demo = () =&gt; {
+  consolg.log(&apos;1&apos;)
+}
+
+let demo1 = new Demo(); //报错is a not constructor</code></pre><p>箭头函数不能绑定arguments, 取而代之用rest参数…来解决</p>
+<pre><code>function A(a){
+  console.log(arguments);
+}
+A(1,2,3,4,5,8);  //  [1, 2, 3, 4, 5, 8, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+
+let B = (b)=&gt;{
+  console.log(arguments);
+}
+B(2,92,32,32);   // Uncaught ReferenceError: arguments is not defined
+
+
+let C = (...c) =&gt; {
+  console.log(c);
+}
+C(3,82,32,11323);  // [3, 82, 32, 11323]</code></pre><p>箭头函数没有自己的this, 他会获取上下文的this作为自己的this值</p>
+<pre><code>var obj = {
+  a: 10,
+  b: () =&gt; {
+    console.log(this.a); // undefined
+    console.log(this); // Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+  },
+  c: function() {
+    console.log(this.a); // 10
+    console.log(this); // {a: 10, b: ƒ, c: ƒ}
+  }
+}
+obj.b(); 
+obj.c();</code></pre><hr>
+<pre><code>var obj = {
+  a: 10,
+  b: function(){
+    console.log(this.a); //10
+  },
+  c: function() {
+    return ()=&gt;{
+          console.log(this.a); //10
+    }
+  }
+}
+obj.b(); 
+obj.c()();</code></pre><p>箭头函数通过call()或apply()方法调用一个函数时,只传入一个参数,对他的this没有影响<br>    let obj2 = {<br>        a: 10,<br>        b: function(n) {<br>            let f = (n) =&gt; n + this.a;<br>            return f(n);<br>        },<br>        c: function(n) {<br>            let f = (n) =&gt; n + this.a;<br>            let m = {<br>                a: 20<br>            };<br>            return f.call(m,n);<br>        }<br>    };<br>    console.log(obj2.b(1));  // 11<br>    console.log(obj2.c(1)); // 11</p>
+<p>箭头函数没有原型属性</p>
+<pre><code>var a = ()=&gt;{
+  return 1;
+}
+
+function b(){
+  return 2;
+}
+
+console.log(a.prototype);  // undefined
+console.log(b.prototype);   // {constructor: ƒ}</code></pre><p>总结 <code>箭头函数的this永远指向其上下文中的this</code></p>
+
             </div>
             <hr/>
 
@@ -1308,8 +1367,8 @@ $(function () {
             <span class="fui-cross"></span>
         </div>
     </div>
-    <script src="/js/waifu-tips.js"></script>
-    <script src="/js/live2d.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/js/waifu-tips.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/js/live2d.min.js"></script>
     <!-- 初始化看板娘，加载 waifu-tips.json -->
     <script type="text/javascript">
         live2d_settings['modelId'] = 3;                  // 默认模型 ID
@@ -1345,6 +1404,6 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/postorman/postorman.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"log":false});</script></body>
+</body>
 
 </html>
